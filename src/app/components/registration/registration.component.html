@@ -1,0 +1,64 @@
+<div class="bootstrap-wrapper">
+    <div class="div container">
+        <div class="row">
+            <div class="div col-md-6 offset-md-3">
+                <div class="div container text-center" >
+                    <img class="img-fluid mt"  style="width:100px" src="/assets/register.png" alt="">
+                </div>
+                <h1 class=text-center>Register here !! </h1>
+
+                <!-- creating form here-->
+                <form  #regiterform="ngForm" (ngSubmit)="registerUser()">
+                    
+                    <div class="form-group">
+                        <label for="emailId">Email</label>
+                        <input type="email" class="form-control" placeholder="Enter email" id="emailId"  name="emailId"  [(ngModel)]="user.emailId" required  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                        #emailId="ngModel"
+                        [class.is-invalid]="emailId.invalid && emailId.touched"
+
+                        >    
+                        <small class="text-danger" [class.d-none]="emailId.valid || emailId.untouched">Email Id is required</small> 
+                                       
+                    <!-- <div  *ngIf="emailId.errors.required">Email Id is required</div>
+
+                       <div *ngIf="emailId.errors.pattern">Email valid email id
+                    </div>-->
+                </div>
+
+                
+                    <br>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                    <input type="username" class="form-control" placeholder="Enter username" id="username"  name="username"  [(ngModel)]="user.userName" required  
+                        #userName="ngModel"
+                        [class.is-invalid]="userName.invalid && userName.touched"
+
+                        >  
+                        <small class="text-danger" [class.d-none]="userName.valid || userName.untouched">Username is required</small>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Enter username" id="password"  name="password"  [(ngModel)]="user.password" required  
+                        #password="ngModel"
+                        [class.is-invalid]="password.invalid && password.touched"
+
+                        >  
+                        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+                    </div>
+                    <br>
+                        <div class="div container text-center" >
+
+                            <!--<button  type="submit" class="btn btn-info">Submit</button>-->
+                            <a  routerLink="/login" mat-raised-button color="accent">Submit</a>
+                        </div>
+                    
+                    
+                </form>
+<!--{{user | json}}-->
+            </div>
+             
+        </div>
+    </div>
+</div>

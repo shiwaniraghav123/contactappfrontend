@@ -1,0 +1,46 @@
+<div style="text-align: center">
+    <h3>{{message}}</h3>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <h4 class = "mt-3 mb-3">Add Contacts</h4>
+            <form #addform="ngForm" (ngSubmit)="addcontact()">
+                <fieldset>
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" type="text"   id="name" name="name" required [ngModel]="contact.name" #name="ngModel"
+                            placeholder="Enter  Name" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input class="form-control" required type="text"  name="email" required [ngModel]="contact.email" #email="ngModel"
+                            id="email" placeholder="Enter Email ID" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            [class.is-invalid]="email.invalid && email.touched"/>
+                            <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phNumber">Phone Number</label>
+                        <input class="form-control" required type="number"  name="phNumber" [ngModel]="contact.phNumber" #phNumber="ngModel" pattern="[7-9]{1}[0-9]{9}"
+                            id="phNumber" placeholder="Enter Phone Number" 
+                            [class.is-invalid]="phNumber.invalid && phNumber.touched"/>
+
+                            <small class="text-danger" [class.d-none]="phNumber.valid || phNumber.untouched">Phone number is required</small>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                       <!-- <input class="btn btn-success" type="submit" name="submit_reg" value="ADD" (click)="addNow()">-->
+                     <!--   <button  type="submit" class="btn btn-info">Add</button>-->
+                        <a   mat-raised-button color="accent">Add</a>
+                    </div>
+                </fieldset>
+            </form>
+            {{contact | json}}
+        </div>
+
+    </div>
+</div>

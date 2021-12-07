@@ -1,0 +1,23 @@
+<div class = "container">
+    <div class = "row col-lg-12 col-sm-12">
+        <table class = "table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>EmailId</th>
+                    
+                    <th>Phone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let user of users">
+                    <td>{{contacts.name}}</td>
+                    
+                    <td>{{contacts.email}}</td>
+                    <td>{{contacts.phNumber}}</td>
+                    <td><button class = "btn btn-danger" (click) = "removeUser(contacts.username)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

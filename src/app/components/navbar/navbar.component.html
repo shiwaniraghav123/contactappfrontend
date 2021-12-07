@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+    
+    <span><a  routerLink="/home" mat-raised-button color="accent">Home</a></span>&nbsp;
+    <span><a  routerLink="/login" mat-raised-button color="accent">Login here</a></span>
+    
+    <span class="spacer"></span>
+    <!--<span><a  routerLink="/home" mat-raised-button color="accent">Home</a></span><hr>
+    <span><a   routerLink="/login" mat-raised-button color="accent">Login here</a></span>-->
+   
+    
+    <a *ngIf!="loggedIn" mat-icon-button routerLink="/home">Home</a>
+    <a *ngIf!="loggedIn" mat-icon-button routerLink="/login">Login</a>
+    <a   mat-icon-button *ngIf="loggedIn" >User</a>
+    <a *ngIf="loggedIn" (click)="logoutUser()"  mat-icon-button >Logout</a>
+    
+
+</mat-toolbar>
+<mat-toolbar color="primary" *ngIf="loggedIn">
+    <a class="right"  routerLink="/register2"  mat-icon-button >Add contacts</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="right"  routerLink="/all-users"  mat-icon-button >All contacts</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="right"  routerLink="/search"  mat-icon-button >Search contacts</a>
+</mat-toolbar>

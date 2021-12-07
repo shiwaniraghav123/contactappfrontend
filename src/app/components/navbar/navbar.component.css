@@ -1,0 +1,8 @@
+.spacer{
+    flex:1 1 auto;
+}
+.a.right {
+    display: inline-block;
+    text-align: right;
+    width: 100%;
+ }
